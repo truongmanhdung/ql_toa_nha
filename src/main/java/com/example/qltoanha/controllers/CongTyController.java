@@ -61,7 +61,7 @@ public class CongTyController {
     }
 
     @GetMapping("/query?{keyword}")
-    public List<CongTy> search(@Param("keyword") String keyword){
+    public List<CongTy> search(@PathVariable("keyword") String keyword){
         return repo.search(keyword);
     }
 }
