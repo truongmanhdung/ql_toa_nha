@@ -1,7 +1,6 @@
 package com.example.qltoanha.controllers;
 
-import com.example.qltoanha.models.NhanVienCongTy;
-import com.example.qltoanha.models.Phong;
+import com.example.qltoanha.models.entity.NhanVienCongTy;
 import com.example.qltoanha.repository.NVCongTyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/nvcongty")
+@RequestMapping(path = "/nvcongty", produces = "application/json")
 public class NhanVienCongTyController {
     @Autowired
     private NVCongTyRepository repo;

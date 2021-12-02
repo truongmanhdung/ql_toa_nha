@@ -1,4 +1,4 @@
-package com.example.qltoanha.models;
+package com.example.qltoanha.models.entity;
 
 import lombok.Data;
 import lombok.Getter;

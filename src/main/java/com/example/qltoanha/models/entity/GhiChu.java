@@ -1,11 +1,11 @@
-package com.example.qltoanha.models;
+package com.example.qltoanha.models.entity;
 
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Date;
 
 @Data
 @Entity
@@ -19,11 +19,12 @@ public class GhiChu {
     private int id;
 
     @Column(name="ngay_tao")
-    private String ngayTao;
+    private Date ngayTao;
 
     @Column(name="ly_do")
     private String lyDo;
 
-    @OneToMany(targetEntity = NhanVienToaNha.class,mappedBy = "ghiChu")
-    private List<NhanVienToaNha> listNhanVien;
+    @ManyToOne(targetEntity = NhanVienToaNha.class)
+    @JoinColumn(name = "ma_nv")
+    private NhanVienToaNha nhanVien;
 }

@@ -1,6 +1,6 @@
 package com.example.qltoanha.controllers;
 
-import com.example.qltoanha.models.Phong;
+import com.example.qltoanha.models.entity.Phong;
 import com.example.qltoanha.repository.PhongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/phong")
+@RequestMapping(path="/phong",produces = "application/json")
 public class PhongController {
     @Autowired
     private PhongRepository repo;

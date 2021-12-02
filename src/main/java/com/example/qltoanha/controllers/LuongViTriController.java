@@ -1,18 +1,16 @@
 package com.example.qltoanha.controllers;
 
-import com.example.qltoanha.models.LuongViTri;
+import com.example.qltoanha.models.entity.LuongViTri;
 import com.example.qltoanha.repository.LuongViTriRepository;
-import jdk.nashorn.internal.runtime.options.Option;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.nio.file.OpenOption;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/luongvitri")
+@RequestMapping(path = "/luongvitri", produces = "appication/json")
 public class LuongViTriController {
 
     @Autowired

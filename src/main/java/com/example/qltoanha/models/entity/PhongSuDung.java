@@ -1,4 +1,4 @@
-package com.example.qltoanha.models;
+package com.example.qltoanha.models.entity;
 
 import lombok.Data;
 import lombok.Getter;
@@ -28,12 +28,14 @@ public class PhongSuDung {
     private String ngayBatDau;
 
     @ManyToOne(targetEntity = Phong.class)
+    @JoinColumn(name = "ma_phong")
     private Phong phong;
     
     @ManyToOne(targetEntity = HopDong.class)
+    @JoinColumn(name = "ma_hop_dong")
     private HopDong hopDong;
 
-    @OneToMany(targetEntity = DichVuSuDung.class,mappedBy = "phongSuDung")
+    @OneToMany(targetEntity = DichVuSuDung.class,mappedBy = "phongSuDung",cascade = CascadeType.ALL)
     private List<DichVuSuDung> dsDichVuSuDung;
 
 }

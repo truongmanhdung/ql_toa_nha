@@ -1,6 +1,6 @@
 package com.example.qltoanha.controllers;
 
-import com.example.qltoanha.models.DichVu;
+import com.example.qltoanha.models.entity.DichVu;
 import com.example.qltoanha.repository.DichVuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/dichvu")
+@RequestMapping(path = "/dichvu",produces = "application/json")
 public class DichVuController {
 
     @Autowired
@@ -54,8 +54,23 @@ public class DichVuController {
         repo.deleteById(id);
     }
 
-    @GetMapping("/query")
-    public List<DichVu> search(@Param("keyword") String keyword){
-        return repo.search(keyword);
+    @GetMapping("/search={keyword}")
+    public List<DichVu> search(@PathVariable("keyword") String keyword){
+        return (List<DichVu>) repo.findAllByTenDvContainingIgnoreCaseOrLoaiDvIgnoreCase(keyword,keyword);
+    }
+
+    @GetMapping("/filter/less={keyword}")
+    public List<DichVu> filterLessThanEqual(@PathVariable("keyword") int keyword){
+        return (List<DichVu>) repo.findAllByDonGiaIsLessThanEqual(keyword);
+    }
+
+    @GetMapping("/filter/greatter={keyword}")
+    public List<DichVu> filterGreaterThanEqual(@PathVariable("keyword") int keyword){
+        return (List<DichVu>) repo.findAllByDonGiaIsGreaterThanEqual(keyword);
+    }
+
+    @GetMapping("/filter/start={keyword}&&end={y}")
+    public List<DichVu> filterInRange(@PathVariable("keyword") int keyword,@PathVariable("y") int y){
+        return (List<DichVu>) repo.findAllByDonGiaIsLessThanEqualAndDonGiaIsGreaterThanEqual(keyword,y);
     }
 }

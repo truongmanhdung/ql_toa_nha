@@ -1,9 +1,7 @@
 package com.example.qltoanha.controllers;
 
-import com.example.qltoanha.models.NhanVienToaNha;
-import com.example.qltoanha.models.Phong;
+import com.example.qltoanha.models.entity.NhanVienToaNha;
 import com.example.qltoanha.repository.NVToaNhaRepository;
-import com.example.qltoanha.repository.PhongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/nvtoanha")
+@RequestMapping(path="/nvtoanha",produces = "application/json")
 @CrossOrigin("*")
 public class NhanVienToaNhaController {
     @Autowired
@@ -44,6 +42,7 @@ public class NhanVienToaNhaController {
             x.setNgaySinh(ph.getNgaySinh());
             x.setSdt(ph.getSdt());
             x.setViTri(ph.getViTri());
+            x.setPhongBan(ph.getPhongBan());
             return repo.save(x);
         }
         return null;

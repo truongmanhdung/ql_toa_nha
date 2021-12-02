@@ -1,6 +1,6 @@
 package com.example.qltoanha.repository;
 
-import com.example.qltoanha.models.LuongViTri;
+import com.example.qltoanha.models.entity.LuongViTri;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

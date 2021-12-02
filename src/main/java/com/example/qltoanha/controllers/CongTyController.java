@@ -1,8 +1,9 @@
 package com.example.qltoanha.controllers;
 
-import com.example.qltoanha.models.CongTy;
+import com.example.qltoanha.models.entity.CongTy;
+import com.example.qltoanha.models.entity.NhanVienCongTy;
 import com.example.qltoanha.repository.CongTyRepository;
-import org.springframework.data.repository.query.Param;
+import org.hibernate.Session;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -60,8 +61,23 @@ public class CongTyController {
         repo.deleteById(id);
     }
 
-    @GetMapping("/query?{keyword}")
+    @GetMapping("/query/search={keyword}")
     public List<CongTy> search(@PathVariable("keyword") String keyword){
-        return repo.search(keyword);
+        return (List<CongTy>) repo.findAllByTenCongTyContainingOrDiaChiContainingOrMaSoThueContainingOrLinhVucContainingOrSdtContaining(keyword,keyword,keyword,keyword,keyword);
+    }
+
+    @GetMapping("/filter/less={keyword}")
+    public List<CongTy> filterVonDieuLeLessThanEqual(@PathVariable("keyword") int keyword){
+        return (List<CongTy>) repo.findAllByVonDieuLeIsLessThanEqual(keyword);
+    }
+
+    @GetMapping("/filter/greater={keyword}")
+    public List<CongTy> filterVonDieuLeGreaterThanEqual(@PathVariable("keyword") int keyword){
+        return (List<CongTy>) repo.findAllByVonDieuLeIsGreaterThanEqual(keyword);
+    }
+
+    @GetMapping("/filter/start={x}&&end{y}")
+    public List<CongTy> filterVonDieuLeInRange(@PathVariable("x") int x,@PathVariable("y") int y){
+        return (List<CongTy>) repo.findAllByVonDieuLeIsGreaterThanEqualAndVonDieuLeIsLessThanEqual(x,y);
     }
 }

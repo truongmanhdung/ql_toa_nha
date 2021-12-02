@@ -1,4 +1,4 @@
-package com.example.qltoanha.models;
+package com.example.qltoanha.models.entity;
 
 import lombok.Data;
 import lombok.Getter;
@@ -27,6 +27,6 @@ public class DichVu {
     @Column(name="don_gia")
     private int donGia;
 
-    @OneToMany(targetEntity = DichVuSuDung.class)
+    @OneToMany(targetEntity = DichVuSuDung.class,mappedBy = "dichVu",cascade = CascadeType.ALL)
     private List<DichVuSuDung> dsDichVuSuDung;
 }

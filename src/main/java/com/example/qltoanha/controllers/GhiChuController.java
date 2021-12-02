@@ -1,9 +1,7 @@
 package com.example.qltoanha.controllers;
 
-import com.example.qltoanha.models.GhiChu;
-import com.example.qltoanha.models.Phong;
+import com.example.qltoanha.models.entity.GhiChu;
 import com.example.qltoanha.repository.GhiChuRepository;
-import com.example.qltoanha.repository.PhongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

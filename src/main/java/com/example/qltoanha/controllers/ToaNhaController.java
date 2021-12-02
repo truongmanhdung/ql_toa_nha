@@ -1,6 +1,6 @@
 package com.example.qltoanha.controllers;
 
-import com.example.qltoanha.models.ToaNha;
+import com.example.qltoanha.models.entity.ToaNha;
 import com.example.qltoanha.repository.ToaNhaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/toanha")
+@RequestMapping(path = "/toanha", produces = "application/json")
 public class ToaNhaController {
     @Autowired
     private ToaNhaRepository repo;

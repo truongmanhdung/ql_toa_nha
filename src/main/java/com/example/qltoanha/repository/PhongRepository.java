@@ -1,6 +1,6 @@
 package com.example.qltoanha.repository;
 
-import com.example.qltoanha.models.Phong;
+import com.example.qltoanha.models.entity.Phong;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

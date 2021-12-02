@@ -1,5 +1,6 @@
-package com.example.qltoanha.models;
+package com.example.qltoanha.models.entity;
 
+import com.example.qltoanha.models.entity.CongTy;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,6 +31,7 @@ public class NhanVienCongTy {
     private String ngaySinh;
 
     @ManyToOne(targetEntity = CongTy.class)
+    @JoinColumn(name = "ma_cong_ty")
     private CongTy congTy;
 
 }

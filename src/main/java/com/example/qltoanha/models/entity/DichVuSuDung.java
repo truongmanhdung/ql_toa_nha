@@ -1,4 +1,4 @@
-package com.example.qltoanha.models;
+package com.example.qltoanha.models.entity;
 
 import lombok.Data;
 import lombok.Getter;
@@ -27,8 +27,10 @@ public class DichVuSuDung {
     private int gia;
 
     @ManyToOne(targetEntity = DichVu.class)
+    @JoinColumn(name = "ma_dv")
     private DichVu dichVu;
 
     @ManyToOne(targetEntity = PhongSuDung.class)
+    @JoinColumn(name = "ma_phong")
     private PhongSuDung phongSuDung;
 }
