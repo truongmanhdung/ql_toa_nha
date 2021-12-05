@@ -27,4 +27,38 @@ public class GhiChu {
     @ManyToOne(targetEntity = NhanVienToaNha.class)
     @JoinColumn(name = "ma_nv")
     private NhanVienToaNha nhanVien;
+    
+ 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Date getNgayTao() {
+		return ngayTao;
+	}
+
+	public void setNgayTao(Date ngayTao) {
+		this.ngayTao = ngayTao;
+	}
+
+	public String getLyDo() {
+		return lyDo;
+	}
+
+	public void setLyDo(String lyDo) {
+		this.lyDo = lyDo;
+	}
+
+	public NhanVienToaNha getNhanVien() {
+		return nhanVien;
+	}
+
+	public void setNhanVien(NhanVienToaNha nhanVien) {
+		this.nhanVien = nhanVien;
+	}
+    
 }

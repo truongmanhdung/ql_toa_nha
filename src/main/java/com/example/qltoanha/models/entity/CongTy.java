@@ -37,9 +37,82 @@ public class CongTy {
     @Column(name="SDT")
     private String sdt;
 
-    @OneToMany(targetEntity = NhanVienCongTy.class,mappedBy = "congTy",cascade = CascadeType.ALL)
-    private List<NhanVienCongTy> listNv;
+//    @OneToMany(targetEntity = NhanVienCongTy.class,mappedBy = "congTy",cascade = CascadeType.ALL)
+//    private List<NhanVienCongTy> listNv;
+//
+//    @OneToMany(targetEntity = HopDong.class,mappedBy = "congTy", cascade = CascadeType.ALL)
+//    private List<HopDong> dsHopDong;
 
-    @OneToMany(targetEntity = HopDong.class,mappedBy = "congTy", cascade = CascadeType.ALL)
-    private List<HopDong> dsHopDong;
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getTenCongTy() {
+		return tenCongTy;
+	}
+
+	public void setTenCongTy(String tenCongTy) {
+		this.tenCongTy = tenCongTy;
+	}
+
+	public String getMaSoThue() {
+		return maSoThue;
+	}
+
+	public void setMaSoThue(String maSoThue) {
+		this.maSoThue = maSoThue;
+	}
+
+	public int getVonDieuLe() {
+		return vonDieuLe;
+	}
+
+	public void setVonDieuLe(int vonDieuLe) {
+		this.vonDieuLe = vonDieuLe;
+	}
+
+	public String getLinhVuc() {
+		return linhVuc;
+	}
+
+	public void setLinhVuc(String linhVuc) {
+		this.linhVuc = linhVuc;
+	}
+
+	public String getDiaChi() {
+		return diaChi;
+	}
+
+	public void setDiaChi(String diaChi) {
+		this.diaChi = diaChi;
+	}
+
+	public String getSdt() {
+		return sdt;
+	}
+
+	public void setSdt(String sdt) {
+		this.sdt = sdt;
+	}
+
+//	public List<NhanVienCongTy> getListNv() {
+//		return listNv;
+//	}
+//
+//	public void setListNv(List<NhanVienCongTy> listNv) {
+//		this.listNv = listNv;
+//	}
+//
+//	public List<HopDong> getDsHopDong() {
+//		return dsHopDong;
+//	}
+//
+//	public void setDsHopDong(List<HopDong> dsHopDong) {
+//		this.dsHopDong = dsHopDong;
+//	}
+    
 }

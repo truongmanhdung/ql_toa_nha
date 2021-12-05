@@ -22,4 +22,29 @@ public class LuongViTri {
 
     @Column(name="luong")
     private int luong;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getViTri() {
+		return viTri;
+	}
+
+	public void setViTri(String viTri) {
+		this.viTri = viTri;
+	}
+
+	public int getLuong() {
+		return luong;
+	}
+
+	public void setLuong(int luong) {
+		this.luong = luong;
+	}
+    
 }

@@ -12,9 +12,17 @@ public class TKLuong extends NhanVienToaNha {
         this.setMaNv(nv.getMaNv());
         this.setBac(nv.getBac());
         this.setTen(nv.getTen());
+        this.setNgaySinh(nv.getNgaySinh());
         this.setDiaChi(nv.getDiaChi());
         this.setSdt(nv.getSdt());
-        this.setViTri(nv.getViTri());
         this.setLuong(luong);
     }
+
+	public int getLuong() {
+		return luong;
+	}
+
+	public void setLuong(int luong) {
+		this.luong = luong;
+	}
 }

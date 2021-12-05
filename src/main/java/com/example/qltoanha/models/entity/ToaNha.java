@@ -28,9 +28,58 @@ public class ToaNha {
     @Column(name="mo_ta")
     private String description;
 
-    @OneToMany(targetEntity = Phong.class,mappedBy = "toaNha",cascade = CascadeType.ALL)
-    private List<Phong> dsPhong;
+//    @OneToMany(targetEntity = Phong.class,mappedBy = "toaNha",cascade = CascadeType.ALL)
+//    private List<Phong> dsPhong;
+//
+//    @OneToMany(targetEntity = PhongBan.class,mappedBy = "toaNha",cascade = CascadeType.ALL)
+//    private List<PhongBan> dsPhongBan;
 
-    @OneToMany(targetEntity = PhongBan.class,mappedBy = "toaNha",cascade = CascadeType.ALL)
-    private List<PhongBan> dsPhongBan;
+	public int getMaToaNha() {
+		return maToaNha;
+	}
+
+	public void setMaToaNha(int maToaNha) {
+		this.maToaNha = maToaNha;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDiaChi() {
+		return diaChi;
+	}
+
+	public void setDiaChi(String diaChi) {
+		this.diaChi = diaChi;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+//	public List<Phong> getDsPhong() {
+//		return dsPhong;
+//	}
+//
+//	public void setDsPhong(List<Phong> dsPhong) {
+//		this.dsPhong = dsPhong;
+//	}
+//
+//	public List<PhongBan> getDsPhongBan() {
+//		return dsPhongBan;
+//	}
+//
+//	public void setDsPhongBan(List<PhongBan> dsPhongBan) {
+//		this.dsPhongBan = dsPhongBan;
+//	}
+    
 }

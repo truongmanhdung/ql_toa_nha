@@ -43,7 +43,6 @@ public class PhongBanController {
             PhongBan congTyExist = x.get();
             congTyExist.setTen(congTy.getTen());
             congTyExist.setToaNha(congTy.getToaNha());
-            congTyExist.setDvPhuTrach(congTy.getDvPhuTrach());
             repo.save(congTyExist);
             return congTyExist;
         }

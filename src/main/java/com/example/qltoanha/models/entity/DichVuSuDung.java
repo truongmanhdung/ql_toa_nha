@@ -33,4 +33,53 @@ public class DichVuSuDung {
     @ManyToOne(targetEntity = PhongSuDung.class)
     @JoinColumn(name = "ma_phong")
     private PhongSuDung phongSuDung;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getSoLuong() {
+		return soLuong;
+	}
+
+	public void setSoLuong(int soLuong) {
+		this.soLuong = soLuong;
+	}
+
+	public int getGiamGia() {
+		return giamGia;
+	}
+
+	public void setGiamGia(int giamGia) {
+		this.giamGia = giamGia;
+	}
+
+	public int getGia() {
+		return gia;
+	}
+
+	public void setGia(int gia) {
+		this.gia = gia;
+	}
+
+	public DichVu getDichVu() {
+		return dichVu;
+	}
+
+	public void setDichVu(DichVu dichVu) {
+		this.dichVu = dichVu;
+	}
+
+	public PhongSuDung getPhongSuDung() {
+		return phongSuDung;
+	}
+
+	public void setPhongSuDung(PhongSuDung phongSuDung) {
+		this.phongSuDung = phongSuDung;
+	}
+    
 }

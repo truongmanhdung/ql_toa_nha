@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping(path = "/luongvitri", produces = "appication/json")
+@RequestMapping(path = "/luongvitri", produces = "application/json")
 public class LuongViTriController {
 
     @Autowired

@@ -7,6 +7,7 @@ import com.example.qltoanha.repository.PhongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,5 +53,10 @@ public class HopDongController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") int id){
         repo.deleteById(id);
+    }
+    
+    @GetMapping("/search/date={key}")
+    public List<HopDong> searchByCreateDate(@PathVariable("key") Date key){
+    	return repo.findAllByNgayTaoIsLessThanEqual(key);
     }
 }

@@ -38,4 +38,61 @@ public class PhongSuDung {
     @OneToMany(targetEntity = DichVuSuDung.class,mappedBy = "phongSuDung",cascade = CascadeType.ALL)
     private List<DichVuSuDung> dsDichVuSuDung;
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getGiamGia() {
+		return giamGia;
+	}
+
+	public void setGiamGia(int giamGia) {
+		this.giamGia = giamGia;
+	}
+
+	public String getGhiChu() {
+		return ghiChu;
+	}
+
+	public void setGhiChu(String ghiChu) {
+		this.ghiChu = ghiChu;
+	}
+
+	public String getNgayBatDau() {
+		return ngayBatDau;
+	}
+
+	public void setNgayBatDau(String ngayBatDau) {
+		this.ngayBatDau = ngayBatDau;
+	}
+
+	public Phong getPhong() {
+		return phong;
+	}
+
+	public void setPhong(Phong phong) {
+		this.phong = phong;
+	}
+
+	public HopDong getHopDong() {
+		return hopDong;
+	}
+
+	public void setHopDong(HopDong hopDong) {
+		this.hopDong = hopDong;
+	}
+
+	public List<DichVuSuDung> getDsDichVuSuDung() {
+		return dsDichVuSuDung;
+	}
+
+	public void setDsDichVuSuDung(List<DichVuSuDung> dsDichVuSuDung) {
+		this.dsDichVuSuDung = dsDichVuSuDung;
+	}
+    
+
 }

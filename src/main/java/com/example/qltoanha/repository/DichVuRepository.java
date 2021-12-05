@@ -10,12 +10,12 @@ import java.util.List;
 @Repository
 public interface DichVuRepository extends CrudRepository<DichVu,Integer> {
 
-    Iterable<DichVu>findAllByTenDvContainingIgnoreCaseOrLoaiDvIgnoreCase(String tenDv, String loaiDv);
+    List<DichVu>findAllByTenDvContainingIgnoreCaseOrLoaiDvIgnoreCase(String tenDv, String loaiDv);
 
-    Iterable<DichVu>findAllByDonGiaIsLessThanEqual(int gia);
+    List<DichVu>findAllByDonGiaIsLessThanEqual(int gia);
 
-    Iterable<DichVu>findAllByDonGiaIsGreaterThanEqual(int gia);
+    List<DichVu>findAllByDonGiaIsGreaterThanEqual(int gia);
 
-    Iterable<DichVu>findAllByDonGiaIsLessThanEqualAndDonGiaIsGreaterThanEqual(int gia1,int gia2);
+    List<DichVu>findAllByDonGiaIsLessThanEqualAndDonGiaIsGreaterThanEqual(int gia1,int gia2);
 
 }

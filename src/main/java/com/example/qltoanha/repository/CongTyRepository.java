@@ -13,9 +13,9 @@ import java.util.List;
 @Repository
 public interface CongTyRepository extends CrudRepository<CongTy,Integer> {
 
-    Iterable<CongTy>findAllByVonDieuLeIsLessThanEqual(int keyword);
-    Iterable<CongTy>findAllByVonDieuLeIsGreaterThanEqual(int keyword);
-    Iterable<CongTy>findAllByVonDieuLeIsGreaterThanEqualAndVonDieuLeIsLessThanEqual(int keyword1,int keyword2);
-    Iterable<CongTy>findAllByTenCongTyContainingOrDiaChiContainingOrMaSoThueContainingOrLinhVucContainingOrSdtContaining(String tenCongTy, String diaChi, String maSoThue, String linhVuc, String sdt);
+    List<CongTy>findAllByVonDieuLeIsLessThanEqual(int keyword);
+    List<CongTy>findAllByVonDieuLeIsGreaterThanEqual(int keyword);
+    List<CongTy>findAllByVonDieuLeIsGreaterThanEqualAndVonDieuLeIsLessThanEqual(int keyword1,int keyword2);
+    List<CongTy>findAllByTenCongTyContainingOrDiaChiContainingOrMaSoThueContainingOrLinhVucContainingOrSdtContaining(String tenCongTy, String diaChi, String maSoThue, String linhVuc, String sdt);
 
 }

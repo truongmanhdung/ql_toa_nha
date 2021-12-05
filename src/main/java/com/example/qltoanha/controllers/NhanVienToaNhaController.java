@@ -41,7 +41,6 @@ public class NhanVienToaNhaController {
             x.setDiaChi(ph.getDiaChi());
             x.setNgaySinh(ph.getNgaySinh());
             x.setSdt(ph.getSdt());
-            x.setViTri(ph.getViTri());
             x.setPhongBan(ph.getPhongBan());
             return repo.save(x);
         }
