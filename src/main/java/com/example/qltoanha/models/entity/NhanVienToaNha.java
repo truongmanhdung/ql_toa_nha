@@ -33,9 +33,6 @@ public class NhanVienToaNha {
     @Column(name="bac")
     private int bac;
 
-    @Column(name="vi_tri")
-    private String viTri;
-
     @OneToOne(targetEntity = LuongViTri.class,cascade = CascadeType.ALL)
     private LuongViTri luongViTri;
 

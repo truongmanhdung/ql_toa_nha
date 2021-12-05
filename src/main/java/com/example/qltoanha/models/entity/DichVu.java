@@ -29,4 +29,9 @@ public class DichVu {
 
     @OneToMany(targetEntity = DichVuSuDung.class,mappedBy = "dichVu",cascade = CascadeType.ALL)
     private List<DichVuSuDung> dsDichVuSuDung;
+    
+    @ManyToOne(targetEntity = DichVu.class)
+    @JoinColumn(name = "ma_phong_ban")
+    private PhongBan phongBan;
+
 }

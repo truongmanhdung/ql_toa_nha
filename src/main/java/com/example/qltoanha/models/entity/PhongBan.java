@@ -19,14 +19,11 @@ public class PhongBan {
     private int id;
 
     @Column(name = "ten")
-    private int ten;
+    private String ten;
 
     @ManyToOne(targetEntity = ToaNha.class)
     private ToaNha toaNha;
 
-    @OneToMany(targetEntity = NhanVienToaNha.class,mappedBy = "phongBan",cascade = CascadeType.ALL)
-    private List<NhanVienToaNha> dcNv;
-
-    @OneToOne(targetEntity = DichVu.class)
-    private DichVu dvPhuTrach;
+    @OneToMany(targetEntity = DichVu.class,mappedBy = "phongBan",cascade = CascadeType.ALL)
+    private List<DichVu> dv;
 }
