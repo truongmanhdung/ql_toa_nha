@@ -57,10 +57,10 @@ public class TKController {
             List<GhiChu> note = (List<GhiChu>) ghiChuRepo.findAll();
             for(GhiChu g : note){
             	if(g.getNhanVien().getMaNv() == y.getMaNv()) {
-	                if(g.getNgayTao().compareTo(start) <= 0 && g.getNgayTao().compareTo(end) >= 0) {
-	                    if (g.getLyDo() == "phat") phat++;
-	                    if (g.getLyDo() == "thuong") thuong++;
-	                }
+            		 if(g.getNgayTao().compareTo(start) <= 0 && g.getNgayTao().compareTo(end) >= 0) {
+ 	                    if (g.getLyDo() == "phat") phat++;
+ 	                    if (g.getLyDo() == "thuong") thuong++;
+ 	                }
             	}
             }
             luong = y.getLuongViTri().getLuong() * y.getBac() - phat * 50000 + thuong * 100000;
