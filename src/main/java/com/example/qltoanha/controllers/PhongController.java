@@ -19,6 +19,16 @@ public class PhongController {
     public List<Phong> getAll(){
         return (List<Phong>) repo.findAll();
     }
+    
+    @GetMapping("/toanha={ii}/index={i}")
+    public List<Phong> getAllInPageByToaNha(@PathVariable("i") int index, @PathVariable("ii") int id){
+        return (List<Phong>) repo.findAllInPageByToaNha(id, index);
+    }
+    
+    @GetMapping("/toanha={ii}")
+    public List<Phong> getAllByToaNha(@PathVariable("ii") int id){
+        return (List<Phong>) repo.findAllPhongByToaNha(id);
+    }
     @GetMapping("/{id}")
     public Phong getById(@PathVariable("id") int id){
         Optional<Phong> x = repo.findById(id);
@@ -46,5 +56,25 @@ public class PhongController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") int id){
         repo.deleteById(id);
+    }
+    
+    @GetMapping("/search={key}")
+    public List<Phong>search(@PathVariable("key") String key) {
+    	return repo.findAllByNameContaining(key);
+    }
+    
+    @GetMapping("/filter/less={price}")
+    public List<Phong>filterLess(@PathVariable("price") int price){
+    	return repo.findAllByPriceIsLessThanEqual(price);
+    }
+    
+    @GetMapping("/filter/greater={price}")
+    public List<Phong>filterGreater(@PathVariable("price") int price){
+    	return repo.findAllByPriceIsGreaterThanEqual(price);
+    }
+    
+    @GetMapping("/filter/less={price}&&greater={price2}")
+    public List<Phong>filterLess(@PathVariable("price") int price, @PathVariable("price2") int price2){
+    	return repo.findAllByPriceIsLessThanEqualAndPriceIsGreaterThanEqual(price, price2);
     }
 }

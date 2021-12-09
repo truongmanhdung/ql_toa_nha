@@ -24,8 +24,8 @@ public class PhongBan {
     @ManyToOne(targetEntity = ToaNha.class)
     private ToaNha toaNha;
 
-//    @OneToMany(targetEntity = DichVu.class,mappedBy = "phongBan",cascade = CascadeType.ALL)
-//    private List<DichVu> dv;
+    @OneToMany(targetEntity = DichVu.class,mappedBy = "phongBan",cascade = CascadeType.ALL)
+    private List<DichVu> dv;
 
 
 	public int getId() {

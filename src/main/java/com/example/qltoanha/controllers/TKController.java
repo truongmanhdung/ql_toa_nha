@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,7 +28,7 @@ public class TKController {
     private GhiChuRepository ghiChuRepo;
 
     @GetMapping("/luong/{start}&&{end}")
-    public List<TKLuong> getAllLuongNv(@PathVariable("start") @DateTimeFormat(pattern = "yyyy-MM-dd")Date start, @PathVariable("end") @DateTimeFormat(pattern = "yyyy-MM-dd") Date end){
+    public List<TKLuong> getAllLuongNv(@PathVariable("start") @DateTimeFormat(pattern = "yyyy-MM-dd")Date start, @PathVariable("end") @DateTimeFormat(pattern = "yyyy-MM-dd") Date end) throws ParseException{
         List<NhanVienToaNha> dsNv = (List<NhanVienToaNha>) nvToaNhaRepository.findAll();
         List<TKLuong> bangLuong = new ArrayList<TKLuong>();
         for(NhanVienToaNha x : dsNv){
@@ -34,7 +36,8 @@ public class TKController {
             List<GhiChu> note = (List<GhiChu>) ghiChuRepo.findAll();
             for(GhiChu g : note){
             	if(g.getNhanVien().getMaNv() == x.getMaNv()) {
-	                if(g.getNgayTao().compareTo(start) <= 0 && g.getNgayTao().compareTo(end) >= 0) {
+            		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(g.getNgayTao());
+	                if(date.compareTo(start) <= 0 && date.compareTo(end) >= 0) {
 	                    if (g.getLyDo() == "phat") phat++;
 	                    if (g.getLyDo() == "thuong") thuong++;
 	                }
@@ -49,7 +52,7 @@ public class TKController {
     }
 
     @GetMapping("/luong/{id}/{start}&&{end}")
-    public TKLuong getLuongNv(@PathVariable("id")int id, @PathVariable("start") @DateTimeFormat(pattern = "yyyy-MM-dd") Date start,@PathVariable("start")@DateTimeFormat(pattern = "yyyy-MM-dd") Date end){
+    public TKLuong getLuongNv(@PathVariable("id")int id, @PathVariable("start") @DateTimeFormat(pattern = "yyyy-MM-dd") Date start,@PathVariable("start")@DateTimeFormat(pattern = "yyyy-MM-dd") Date end) throws ParseException{
         Optional<NhanVienToaNha> x = nvToaNhaRepository.findById(id);
         if(x.isPresent()){
             NhanVienToaNha y = x.get();
@@ -57,7 +60,8 @@ public class TKController {
             List<GhiChu> note = (List<GhiChu>) ghiChuRepo.findAll();
             for(GhiChu g : note){
             	if(g.getNhanVien().getMaNv() == y.getMaNv()) {
-            		 if(g.getNgayTao().compareTo(start) <= 0 && g.getNgayTao().compareTo(end) >= 0) {
+            		 Date date = new SimpleDateFormat("yyyy-MM-dd").parse(g.getNgayTao());
+            		 if(date.compareTo(start) <= 0 && date.compareTo(end) >= 0) {
  	                    if (g.getLyDo() == "phat") phat++;
  	                    if (g.getLyDo() == "thuong") thuong++;
  	                }

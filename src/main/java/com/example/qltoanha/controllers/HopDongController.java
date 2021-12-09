@@ -43,7 +43,6 @@ public class HopDongController {
             x.setGia(ph.getGia());
             x.setCongTy(ph.getCongTy());
             x.setGhiChu(ph.getGhiChu());
-            x.setDsPhongSuDung(ph.getDsPhongSuDung());
             x.setNgayHetHan(ph.getNgayHetHan());
             x.setNhanVienToaNha(ph.getNhanVienToaNha());
             return repo.save(x);

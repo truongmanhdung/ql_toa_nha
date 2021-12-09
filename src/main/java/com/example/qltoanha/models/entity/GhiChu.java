@@ -19,7 +19,7 @@ public class GhiChu {
     private int id;
 
     @Column(name="ngay_tao")
-    private Date ngayTao;
+    private String ngayTao;
 
     @Column(name="ly_do")
     private String lyDo;
@@ -37,11 +37,11 @@ public class GhiChu {
 		this.id = id;
 	}
 
-	public Date getNgayTao() {
+	public String getNgayTao() {
 		return ngayTao;
 	}
 
-	public void setNgayTao(Date ngayTao) {
+	public void setNgayTao(String ngayTao) {
 		this.ngayTao = ngayTao;
 	}
 

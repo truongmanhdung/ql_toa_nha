@@ -37,8 +37,8 @@ public class HopDong {
     @JoinColumn(name="ma_nv_toa_nha")
     private NhanVienToaNha nhanVienToaNha;
 
-    @OneToMany(targetEntity = PhongSuDung.class,mappedBy = "hopDong",cascade = CascadeType.ALL)
-    private List<PhongSuDung> dsPhongSuDung;
+//    @OneToMany(targetEntity = PhongSuDung.class,mappedBy = "hopDong",cascade = CascadeType.ALL)
+//    private List<PhongSuDung> dsPhongSuDung;
 
 	public int getId() {
 		return id;
@@ -96,13 +96,13 @@ public class HopDong {
 		this.nhanVienToaNha = nhanVienToaNha;
 	}
 
-	public List<PhongSuDung> getDsPhongSuDung() {
-		return dsPhongSuDung;
-	}
-
-	public void setDsPhongSuDung(List<PhongSuDung> dsPhongSuDung) {
-		this.dsPhongSuDung = dsPhongSuDung;
-	}
+//	public List<PhongSuDung> getDsPhongSuDung() {
+//		return dsPhongSuDung;
+//	}
+//
+//	public void setDsPhongSuDung(List<PhongSuDung> dsPhongSuDung) {
+//		this.dsPhongSuDung = dsPhongSuDung;
+//	}
     
     
 }

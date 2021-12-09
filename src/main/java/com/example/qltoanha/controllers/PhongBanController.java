@@ -21,6 +21,16 @@ public class PhongBanController {
     public List<PhongBan> getAll(){
         return (List<PhongBan>) repo.findAll();
     }
+    
+    @GetMapping("/toanha={i}")
+    public List<PhongBan> getAllByToaNha(@PathVariable("i") int id){
+        return (List<PhongBan>) repo.findAllPhongByToaNha(id);
+    }
+    
+    @GetMapping("/toanha={i}/index={ii}")
+    public List<PhongBan> getAllByToaNha(@PathVariable("i") int id,@PathVariable("ii") int index){
+        return (List<PhongBan>) repo.findAllInPageByToaNha(id, index);
+    }
 
     @GetMapping("/{id}")
     public PhongBan getById(@PathVariable("id") int id){

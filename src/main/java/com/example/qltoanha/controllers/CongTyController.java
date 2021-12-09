@@ -2,6 +2,7 @@ package com.example.qltoanha.controllers;
 
 import com.example.qltoanha.models.entity.CongTy;
 import com.example.qltoanha.models.entity.NhanVienCongTy;
+import com.example.qltoanha.models.entity.ToaNha;
 import com.example.qltoanha.repository.CongTyRepository;
 import org.hibernate.Session;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,11 @@ public class CongTyController {
         return (List<CongTy>) repo.findAll();
     }
 
+    @GetMapping("/index={i}")
+    public List<CongTy> getPage(@PathVariable("i") int index){
+        return (List<CongTy>) repo.findAllInPage(index);
+    }
+    
     @GetMapping("/{id}")
     public CongTy getById(@PathVariable("id") int id){
         Optional<CongTy> congTy = repo.findById(id);
@@ -76,7 +82,7 @@ public class CongTyController {
         return (List<CongTy>) repo.findAllByVonDieuLeIsGreaterThanEqual(keyword);
     }
 
-    @GetMapping("/filter/start={x}&&end{y}")
+    @GetMapping("/filter/start={x}&&end={y}")
     public List<CongTy> filterVonDieuLeInRange(@PathVariable("x") int x,@PathVariable("y") int y){
         return (List<CongTy>) repo.findAllByVonDieuLeIsGreaterThanEqualAndVonDieuLeIsLessThanEqual(x,y);
     }

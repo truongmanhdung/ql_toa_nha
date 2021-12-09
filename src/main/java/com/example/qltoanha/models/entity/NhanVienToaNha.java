@@ -33,18 +33,18 @@ public class NhanVienToaNha {
     @Column(name="bac")
     private int bac;
 
-    @OneToOne(targetEntity = LuongViTri.class,cascade = CascadeType.ALL)
+    @OneToOne(targetEntity = LuongViTri.class)
     private LuongViTri luongViTri;
 
     @ManyToOne(targetEntity = PhongBan.class)
     @JoinColumn(name = "ma_phong_ban")
     private PhongBan phongBan;
 
-//    @OneToMany(targetEntity = GhiChu.class,mappedBy = "nhanVien",cascade = CascadeType.ALL)
-//    private List<GhiChu> ghiChu;
-//
-//    @OneToMany(targetEntity = HopDong.class,mappedBy = "nhanVienToaNha",cascade = CascadeType.ALL)
-//    private List<HopDong> dsHopDong;
+    @OneToMany(targetEntity = GhiChu.class,mappedBy = "nhanVien",cascade = CascadeType.ALL)
+    private List<GhiChu> ghiChu;
+
+    @OneToMany(targetEntity = HopDong.class,mappedBy = "nhanVienToaNha",cascade = CascadeType.ALL)
+    private List<HopDong> dsHopDong;
 
 	public int getMaNv() {
 		return maNv;
