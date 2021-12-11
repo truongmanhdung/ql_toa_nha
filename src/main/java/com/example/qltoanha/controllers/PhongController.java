@@ -29,6 +29,11 @@ public class PhongController {
     public List<Phong> getAllByToaNha(@PathVariable("ii") int id){
         return (List<Phong>) repo.findAllPhongByToaNha(id);
     }
+    
+    @GetMapping("/index={ii}")
+    public List<Phong> getPage(@PathVariable("ii") int id){
+        return (List<Phong>) repo.findAllPage(id);
+    }
     @GetMapping("/{id}")
     public Phong getById(@PathVariable("id") int id){
         Optional<Phong> x = repo.findById(id);

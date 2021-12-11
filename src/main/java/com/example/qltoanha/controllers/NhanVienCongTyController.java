@@ -27,7 +27,12 @@ public class NhanVienCongTyController {
     
     @GetMapping("/cty={id}/index={index}")
     public List<NhanVienCongTy> getPage(@PathVariable("id") int id, @PathVariable("index") int index){
-        return (List<NhanVienCongTy>) repo.findAllByCongTy(id);
+        return (List<NhanVienCongTy>) repo.findAllInPage(id, index);
+    }
+    
+    @GetMapping("/cty={id}/search={s}")
+    public List<NhanVienCongTy> search(@PathVariable("id") int id, @PathVariable("s") String x){
+        return (List<NhanVienCongTy>) repo.findAllByTen(id, x);
     }
     
     @GetMapping("/{id}")

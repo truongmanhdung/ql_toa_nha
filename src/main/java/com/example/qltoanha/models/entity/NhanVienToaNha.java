@@ -110,13 +110,13 @@ public class NhanVienToaNha {
 		this.phongBan = phongBan;
 	}
 
-//	public List<GhiChu> getGhiChu() {
-//		return ghiChu;
-//	}
-//
-//	public void setGhiChu(List<GhiChu> ghiChu) {
-//		this.ghiChu = ghiChu;
-//	}
+	public List<GhiChu> getGhiChu() {
+		return ghiChu;
+	}
+
+	public void setGhiChu(List<GhiChu> ghiChu) {
+		this.ghiChu = ghiChu;
+	}
 //
 //	public List<HopDong> getDsHopDong() {
 //		return dsHopDong;

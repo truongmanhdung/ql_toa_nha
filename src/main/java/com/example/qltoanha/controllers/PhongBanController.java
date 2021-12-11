@@ -32,6 +32,15 @@ public class PhongBanController {
         return (List<PhongBan>) repo.findAllInPageByToaNha(id, index);
     }
 
+    @GetMapping("/search={i}")
+    public List<PhongBan> search(@PathVariable("i") String id){
+        return (List<PhongBan>) repo.findAllByTenContainingIgnoreCase(id);
+    }
+    
+    @GetMapping("/index={i}")
+    public List<PhongBan> getPage(@PathVariable("i") int id){
+        return (List<PhongBan>) repo.findAllPage(id);
+    }
     @GetMapping("/{id}")
     public PhongBan getById(@PathVariable("id") int id){
         Optional<PhongBan> congTy = repo.findById(id);

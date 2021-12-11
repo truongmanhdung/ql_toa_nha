@@ -19,9 +19,20 @@ public class GhiChu {
     private int id;
 
     @Column(name="ngay_tao")
-    private String ngayTao;
+    private Date ngayTao;
+    
+    @Column(name="status")
+    private String status;
 
-    @Column(name="ly_do")
+    public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	@Column(name="ly_do")
     private String lyDo;
 
     @ManyToOne(targetEntity = NhanVienToaNha.class)
@@ -37,11 +48,11 @@ public class GhiChu {
 		this.id = id;
 	}
 
-	public String getNgayTao() {
+	public Date getNgayTao() {
 		return ngayTao;
 	}
 
-	public void setNgayTao(String ngayTao) {
+	public void setNgayTao(Date ngayTao) {
 		this.ngayTao = ngayTao;
 	}
 
@@ -53,12 +64,12 @@ public class GhiChu {
 		this.lyDo = lyDo;
 	}
 
-	public NhanVienToaNha getNhanVien() {
-		return nhanVien;
-	}
-
-	public void setNhanVien(NhanVienToaNha nhanVien) {
-		this.nhanVien = nhanVien;
-	}
+//	public NhanVienToaNha getNhanVien() {
+//		return nhanVien;
+//	}
+//
+//	public void setNhanVien(NhanVienToaNha nhanVien) {
+//		this.nhanVien = nhanVien;
+//	}
     
 }

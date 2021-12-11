@@ -23,4 +23,10 @@ public interface NVToaNhaRepository extends CrudRepository<NhanVienToaNha,Intege
     
     @Query(value = "select * from tbl_nv_toa_nha where tbl_nv_toa_nha.ma_phong_ban in (select id from tbl_phong_ban where tbl_phong_ban.toa_nha_id = ?1)" , nativeQuery = true)
 	List<NhanVienToaNha>findAllByToaNha(int id);
+    
+    @Query(value = "select * from tbl_nv_toa_nha where tbl_nv_toa_nha.ma_phong_ban in (select id from tbl_phong_ban where tbl_phong_ban.toa_nha_id = ?2)" , nativeQuery = true)
+	List<NhanVienToaNha>findAllByPhongBan(int id, int toanha);
+    
+    @Query(value = "select * from tbl_nv_toa_nha where ( tbl_nv_toa_nha.ma_phong_ban in (select id from tbl_phong_ban where tbl_phong_ban.toa_nha_id = ?1)) and tbl_nv_toa_nha.ten like %?2%" , nativeQuery = true)
+	List<NhanVienToaNha>searchByToaNha(int id,String key);
 }

@@ -2,6 +2,7 @@ package com.example.qltoanha.repository;
 
 import com.example.qltoanha.models.entity.NhanVienToaNha;
 import com.example.qltoanha.models.entity.Phong;
+import com.example.qltoanha.models.entity.PhongBan;
 
 import java.util.List;
 
@@ -24,4 +25,7 @@ public interface PhongRepository extends CrudRepository<Phong,Integer> {
     
     @Query(value = "select * from tbl_phong where tbl_phong.ma_toa_nha = ?1", nativeQuery = true)
 	List<Phong>findAllPhongByToaNha(int id);
+    
+    @Query(value = "select * from tbl_phong limit ?1,10", nativeQuery = true)
+	List<Phong>findAllPage(int id);
 }

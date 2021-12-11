@@ -31,8 +31,8 @@ public class DichVu {
     @Column(name="don_gia")
     private int donGia;
 
-//    @OneToMany(targetEntity = DichVuSuDung.class,mappedBy = "dichVu",cascade = CascadeType.ALL)
-//    private List<DichVuSuDung> dsDichVuSuDung;
+    @OneToMany(targetEntity = DichVuSuDung.class,mappedBy = "dichVu",cascade = CascadeType.ALL)
+    private List<DichVuSuDung> dsDichVuSuDung;
     
     @ManyToOne(targetEntity = PhongBan.class)
     @JoinColumn(name = "ma_phong_ban")

@@ -17,4 +17,9 @@ public interface PhongBanRepository extends CrudRepository<PhongBan,Integer> {
     
     @Query(value = "select * from tbl_phong_ban where tbl_phong_ban.toa_nha_id = ?1", nativeQuery = true)
 	List<PhongBan>findAllPhongByToaNha(int id);
+    
+    @Query(value = "select * from tbl_phong_ban limit ?1,10", nativeQuery = true)
+	List<PhongBan>findAllPage(int id);
+    
+    List<PhongBan>findAllByTenContainingIgnoreCase(String key);
 }

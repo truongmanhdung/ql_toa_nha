@@ -1,6 +1,7 @@
 package com.example.qltoanha.controllers;
 
 import com.example.qltoanha.models.entity.DichVu;
+import com.example.qltoanha.models.entity.NhanVienToaNha;
 import com.example.qltoanha.repository.DichVuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -20,6 +21,21 @@ public class DichVuController {
     @GetMapping
     public List<DichVu> getAll(){
         return (List<DichVu>) repo.findAll();
+    }
+    
+    @GetMapping("/index={i}")
+    public List<DichVu> getPage(@PathVariable("i") int index){
+        return (List<DichVu>) repo.findAllInPage(index);
+    }
+    
+    @GetMapping("/toanha={i}")
+    public List<DichVu> getAllByToaNha(@PathVariable("i") int index){
+        return (List<DichVu>) repo.findAllByToaNha(index);
+    }
+    
+    @GetMapping("/toanha={i}/index={ii}")
+    public List<DichVu> getAllByToaNha(@PathVariable("i") int id,@PathVariable("ii") int index){
+        return (List<DichVu>) repo.findAllInPage(id, index);
     }
 
     @GetMapping("/{id}")

@@ -17,4 +17,7 @@ public interface NVCongTyRepository extends CrudRepository<NhanVienCongTy,Intege
 	@Query(value = "select * from tbl_nv_cty where tbl_nv_cty.ma_cong_ty = ?1 limit ?2,10", nativeQuery = true)
 	List<NhanVienCongTy>findAllInPage(int id,int index);
 	
+	@Query(value = "select * from tbl_nv_cty where tbl_nv_cty.ma_cong_ty = ?1 and tbl_nv_cty.ten like %?2%", nativeQuery = true)
+	List<NhanVienCongTy>findAllByTen(int id, String x);
+	
 }
