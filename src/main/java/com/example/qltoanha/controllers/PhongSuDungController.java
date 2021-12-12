@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import com.example.qltoanha.repository.DVSuDungRepository;
 import com.example.qltoanha.repository.PhongSuDungRepository;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/phongsudung")
 public class PhongSuDungController {
 	@Autowired
@@ -25,6 +27,11 @@ public class PhongSuDungController {
 	@GetMapping
 	public List<PhongSuDung> getAll() {
 		return (List<PhongSuDung>) repo.findAll();
+	}
+	
+	@GetMapping("id={id}")
+	public List<PhongSuDung> getByToaNha(@PathVariable("id") int id) {
+		return (List<PhongSuDung>) repo.findAllByToaNha(id);
 	}
 	@PostMapping
 	public PhongSuDung create(PhongSuDung dv) {
@@ -35,9 +42,10 @@ public class PhongSuDungController {
 		Optional<PhongSuDung> exist = repo.findById(id);
 		if(exist.isEmpty()) {
 			PhongSuDung d = exist.get();
-			d.setGiamGia(dv.getGiamGia());
+			d.setGhiChu(dv.getGhiChu());
 			d.setNgayBatDau(dv.getNgayBatDau());
 			d.setGiamGia(dv.getGiamGia());
+//			d.setDsDichVuSuDung(dv.getDsDichVuSuDung());
 			return repo.save(d);
 		}
 		return null;

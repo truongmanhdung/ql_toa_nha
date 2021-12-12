@@ -32,8 +32,8 @@ public class Phong {
     @JoinColumn(name = "ma_toa_nha")
     private ToaNha toaNha;
 
-//    @OneToMany(targetEntity = PhongSuDung.class,mappedBy = "phong",cascade = CascadeType.ALL)
-//    private List<PhongSuDung> dsPhongSuDung;
+    @OneToMany(targetEntity = PhongSuDung.class,mappedBy = "phong",cascade = CascadeType.ALL)
+    private List<PhongSuDung> dsPhongSuDung;
 
 	public int getId() {
 		return id;

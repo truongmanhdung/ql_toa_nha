@@ -22,4 +22,7 @@ public interface GhiChuRepository extends CrudRepository<GhiChu,Integer> {
 	@Query(value = "select * from tbl_ghi_chu where tbl_ghi_chu.ma_nv = ?1 and tbl_ghi_chu.ly_do like %?2%", nativeQuery = true)
 	List<GhiChu>findAllByLiDo(int id, String x);
 	
+	@Query(value = "select count(*) from tbl_ghi_chu where tbl_ghi_chu.ma_nv = ?1 and tbl_ghi_chu.status like ?2 and (tbl_ghi_chu.ngay_tao between ?3 and ?4)", nativeQuery = true)
+	int countStatusByNhanVien(int id, String status, Date start, Date end);
+	
 }

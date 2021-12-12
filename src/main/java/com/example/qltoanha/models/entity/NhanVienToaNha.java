@@ -43,8 +43,8 @@ public class NhanVienToaNha {
     @OneToMany(targetEntity = GhiChu.class,mappedBy = "nhanVien",cascade = CascadeType.ALL)
     private List<GhiChu> ghiChu;
 
-    @OneToMany(targetEntity = HopDong.class,mappedBy = "nhanVienToaNha",cascade = CascadeType.ALL)
-    private List<HopDong> dsHopDong;
+//    @OneToMany(targetEntity = HopDong.class,mappedBy = "nhanVienToaNha",cascade = CascadeType.ALL)
+//    private List<HopDong> dsHopDong;
 
 	public int getMaNv() {
 		return maNv;

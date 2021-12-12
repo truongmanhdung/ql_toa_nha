@@ -5,6 +5,7 @@ import com.example.qltoanha.models.entity.Phong;
 import com.example.qltoanha.repository.HopDongRepository;
 import com.example.qltoanha.repository.PhongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -21,6 +22,21 @@ public class HopDongController {
     @GetMapping
     public List<HopDong> getAll(){
         return (List<HopDong>) repo.findAll();
+    }
+    
+    @GetMapping("/toanha={id}/index={i}")
+    public List<HopDong> getPage(@PathVariable(name = "i") int index,@PathVariable(name = "id") int id){
+        return (List<HopDong>) repo.findAllInPageByToaNha(id,index);
+    }
+    
+    @GetMapping("/toanha={id}/search={i}")
+    public List<HopDong> getPage(@PathVariable("i") @DateTimeFormat(pattern = "yyyy-MM-dd") Date index, @PathVariable(name = "id") int id){
+        return (List<HopDong>) repo.searchByToaNha(id, index);
+    }
+    
+    @GetMapping("/toanha={id}")
+    public List<HopDong> getAllByToaNha(@PathVariable("id") int id){
+        return (List<HopDong>) repo.findAllByToaNha(id);
     }
     @GetMapping("/{id}")
     public HopDong getById(@PathVariable("id") int id){
@@ -44,7 +60,8 @@ public class HopDongController {
             x.setCongTy(ph.getCongTy());
             x.setGhiChu(ph.getGhiChu());
             x.setNgayHetHan(ph.getNgayHetHan());
-            x.setNhanVienToaNha(ph.getNhanVienToaNha());
+            x.setToaNha(ph.getToaNha());
+            x.setDsPhongSuDung(ph.getDsPhongSuDung());
             return repo.save(x);
         }
         return null;
@@ -54,8 +71,5 @@ public class HopDongController {
         repo.deleteById(id);
     }
     
-    @GetMapping("/search/date={key}")
-    public List<HopDong> searchByCreateDate(@PathVariable("key") Date key){
-    	return repo.findAllByNgayTaoIsLessThanEqual(key);
-    }
+    
 }

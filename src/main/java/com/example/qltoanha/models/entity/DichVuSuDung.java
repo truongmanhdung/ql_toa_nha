@@ -30,9 +30,9 @@ public class DichVuSuDung {
     @JoinColumn(name = "ma_dv")
     private DichVu dichVu;
 
-    @ManyToOne(targetEntity = PhongSuDung.class)
-    @JoinColumn(name = "ma_phong")
-    private PhongSuDung phongSuDung;
+    @ManyToOne(targetEntity = HopDong.class)
+    @JoinColumn(name = "ma_hop_dong")
+    private HopDong dv;
 
 	public int getId() {
 		return id;
@@ -74,12 +74,12 @@ public class DichVuSuDung {
 		this.dichVu = dichVu;
 	}
 
-	public PhongSuDung getPhongSuDung() {
-		return phongSuDung;
-	}
-
-	public void setPhongSuDung(PhongSuDung phongSuDung) {
-		this.phongSuDung = phongSuDung;
-	}
+//	public PhongSuDung getPhongSuDung() {
+//		return phongSuDung;
+//	}
+//
+//	public void setPhongSuDung(PhongSuDung phongSuDung) {
+//		this.phongSuDung = phongSuDung;
+//	}
     
 }

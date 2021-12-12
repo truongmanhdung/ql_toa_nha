@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -18,27 +20,38 @@ public class HopDong {
     private int id;
 
     @Column(name = "ngay_tao")
-    private String ngayTao;
+    private Date ngayTao;
 
     @Column(name = "ngay_het_han")
-    private String ngayHetHan;
+    private Date ngayHetHan;
 
     @Column(name="ghi_chu")
     private String ghiChu;
 
     @Column(name="gia")
-    private int gia;
+    private float gia;
 
     @ManyToOne(targetEntity = CongTy.class)
     @JoinColumn(name = "ma_cong_ty")
     private CongTy congTy;
 
-    @ManyToOne(targetEntity = NhanVienToaNha.class)
-    @JoinColumn(name="ma_nv_toa_nha")
-    private NhanVienToaNha nhanVienToaNha;
+    @ManyToOne(targetEntity = ToaNha.class)
+    @JoinColumn(name="ma_toa_nha")
+    private ToaNha toaNha;
 
-//    @OneToMany(targetEntity = PhongSuDung.class,mappedBy = "hopDong",cascade = CascadeType.ALL)
-//    private List<PhongSuDung> dsPhongSuDung;
+    @OneToMany(targetEntity = PhongSuDung.class,mappedBy = "hopDong",cascade = CascadeType.ALL)
+    private List<PhongSuDung> dsPhongSuDung;
+    
+    @OneToMany(targetEntity = DichVuSuDung.class,mappedBy = "dv",cascade = CascadeType.ALL)
+    private List<DichVuSuDung> dvSuDung;
+
+	public List<DichVuSuDung> getDvSuDung() {
+		return dvSuDung;
+	}
+
+	public void setDvSuDung(List<DichVuSuDung> dvSuDung) {
+		this.dvSuDung = dvSuDung;
+	}
 
 	public int getId() {
 		return id;
@@ -48,19 +61,19 @@ public class HopDong {
 		this.id = id;
 	}
 
-	public String getNgayTao() {
+	public Date getNgayTao() {
 		return ngayTao;
 	}
 
-	public void setNgayTao(String ngayTao) {
+	public void setNgayTao(Date ngayTao) {
 		this.ngayTao = ngayTao;
 	}
 
-	public String getNgayHetHan() {
+	public Date getNgayHetHan() {
 		return ngayHetHan;
 	}
 
-	public void setNgayHetHan(String ngayHetHan) {
+	public void setNgayHetHan(Date ngayHetHan) {
 		this.ngayHetHan = ngayHetHan;
 	}
 
@@ -72,11 +85,11 @@ public class HopDong {
 		this.ghiChu = ghiChu;
 	}
 
-	public int getGia() {
+	public float getGia() {
 		return gia;
 	}
 
-	public void setGia(int gia) {
+	public void setGia(float gia) {
 		this.gia = gia;
 	}
 
@@ -88,21 +101,23 @@ public class HopDong {
 		this.congTy = congTy;
 	}
 
-	public NhanVienToaNha getNhanVienToaNha() {
-		return nhanVienToaNha;
+	public ToaNha getToaNha() {
+		return toaNha;
 	}
 
-	public void setNhanVienToaNha(NhanVienToaNha nhanVienToaNha) {
-		this.nhanVienToaNha = nhanVienToaNha;
+	public void setToaNha(ToaNha toaNha) {
+		this.toaNha = toaNha;
 	}
 
-//	public List<PhongSuDung> getDsPhongSuDung() {
-//		return dsPhongSuDung;
-//	}
-//
-//	public void setDsPhongSuDung(List<PhongSuDung> dsPhongSuDung) {
-//		this.dsPhongSuDung = dsPhongSuDung;
-//	}
+	
+
+	public List<PhongSuDung> getDsPhongSuDung() {
+		return dsPhongSuDung;
+	}
+
+	public void setDsPhongSuDung(List<PhongSuDung> dsPhongSuDung) {
+		this.dsPhongSuDung = dsPhongSuDung;
+	}
     
     
 }
