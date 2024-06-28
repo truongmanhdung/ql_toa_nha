@@ -17,7 +17,8 @@ import java.util.List;
 @Setter
 public class DichVu {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_dich_vu_sequence")
+	@SequenceGenerator(name = "id_dich_vu_sequence", sequenceName = "id_dich_vu_sequence")
     @Column(name="id")
     private int id;
 

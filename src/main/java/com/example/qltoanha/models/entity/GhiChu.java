@@ -14,7 +14,8 @@ import java.util.Date;
 @Setter
 public class GhiChu {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_ghi_chu_sequence")
+	@SequenceGenerator(name = "id_ghi_chu_sequence", sequenceName = "id_ghi_chu_sequence")
     @Column(name="id")
     private int id;
 

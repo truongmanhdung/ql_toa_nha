@@ -13,7 +13,8 @@ import javax.persistence.*;
 @Setter
 public class NhanVienCongTy {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_nvcty_sequence")
+	@SequenceGenerator(name = "id_nvcty_sequence", sequenceName = "id_nvcty_sequence")
     @Column(name="id")
     private int id;
 

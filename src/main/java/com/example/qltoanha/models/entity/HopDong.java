@@ -16,7 +16,8 @@ import java.util.List;
 @Setter
 public class HopDong {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_hop_dong_sequence")
+	@SequenceGenerator(name = "id_hop_dong_sequence", sequenceName = "id_hop_dong_sequence")
     private int id;
 
     @Column(name = "ngay_tao")

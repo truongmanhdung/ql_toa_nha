@@ -15,7 +15,8 @@ import java.util.List;
 public class Phong {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_phong_sequence")
+	@SequenceGenerator(name = "id_phong_sequence", sequenceName = "id_phong_sequence")
     @Column(name="ma_phong")
     private int id;
 

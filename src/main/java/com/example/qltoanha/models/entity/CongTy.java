@@ -15,8 +15,9 @@ import java.util.List;
 public class CongTy {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name="id")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_cong_ty_sequence")
+	@SequenceGenerator(name = "id_cong_ty_sequence", sequenceName = "id_cong_ty_sequence")
     private int id;
 
     @Column(name="ten_cong_ty")

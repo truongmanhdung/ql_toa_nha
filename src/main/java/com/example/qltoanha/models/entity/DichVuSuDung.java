@@ -13,7 +13,8 @@ import javax.persistence.*;
 @Setter
 public class DichVuSuDung {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_dvsd_sequence")
+	@SequenceGenerator(name = "id_dvsd_sequence", sequenceName = "id_dvsd_sequence")
     @Column(name="id")
     private int id;
 

@@ -13,7 +13,8 @@ import javax.persistence.*;
 @Setter
 public class LuongViTri {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_luont_vt_sequence")
+	@SequenceGenerator(name = "id_luong_vt_sequence", sequenceName = "id_luong_vt_sequence")
     @Column(name = "id")
     private int id;
 

@@ -14,7 +14,8 @@ import java.util.List;
 @Setter
 public class NhanVienToaNha {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_nv_sequence")
+	@SequenceGenerator(name = "id_nv_sequence", sequenceName = "id_nv_sequence")
     @Column(name="ma_NV")
     private int maNv;
 
